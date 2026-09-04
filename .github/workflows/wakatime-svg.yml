@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Generate and publish WakaTime SVGs
         uses: ./. # Uses the local composite action defined in action.yml
         with:

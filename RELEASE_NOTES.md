@@ -1,5 +1,24 @@
 # Release Notes
 
+## v1.4.0 - 2026-08-19
+
+### Improvements
+
+- Card geometry now matches `AndrewDongminYoo/github-stats-transparent`, so both projects' cards line up when stacked on a profile README: a 360px image, a 350px card inset by 5px, and content starting at (21, 17).
+
+### Changed Defaults
+
+- `WAKATIME_CHART_WIDTH` is now `350` (was `360`) and `WAKATIME_CHART_PADDING` is now `5` (was `12`).
+  Set both explicitly to keep the previous 384px image.
+
+## v1.3.0 - 2026-08-19
+
+### Fixes
+
+- Project bars now encode time worked, scaled against the busiest project.
+  They previously showed an additions-vs-deletions ratio, but WakaTime reports no deletions, so every project drew an identical full-width bar no matter how long it was worked on.
+  The projects card title drops the now-meaningless `(+/-)` marker.
+
 ## v1.2.0 - 2026-01-22
 
 ### Improvements

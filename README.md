@@ -2,12 +2,19 @@
 
 ![Repository banner](assets/banner.png)
 
+[![Generate WakaTime SVG](https://github.com/AndrewDongminYoo/wakatime-svg/actions/workflows/wakatime-svg.yml/badge.svg?branch=main)](https://github.com/AndrewDongminYoo/wakatime-svg/actions/workflows/wakatime-svg.yml)
+[![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-WakaTime%20SVG-2088FF?logo=githubactions&logoColor=white)](https://github.com/marketplace/actions/wakatime-svg)
+[![Latest release](https://img.shields.io/github/v/release/AndrewDongminYoo/wakatime-svg)](https://github.com/AndrewDongminYoo/wakatime-svg/releases/latest)
+[![MIT license](https://img.shields.io/github/license/AndrewDongminYoo/wakatime-svg)](LICENSE)
+[![WakaTime automation](https://img.shields.io/badge/WakaTime-automation-000000?logo=wakatime&logoColor=white)](#github-action-usage-marketplace)
+[![Python 3.14 or newer](https://img.shields.io/badge/Python-3.14%2B-3776AB?logo=python&logoColor=white)](#quick-start-local)
+
 Generate SVG cards from WakaTime stats for the last 7 days. GitHub Actions refreshes the SVGs daily and publishes the artifacts to the `output` branch.
 
 ## Key Features
 
 - Visualizes the top 5 languages by time and percentage
-- Visualizes the top 5 projects by time, with additions vs deletions ratios
+- Visualizes the top 5 projects by time, with each bar scaled against the busiest project
 - Language color mapping with percentage bars
 - Daily scheduled refresh (00:00 UTC)
 
@@ -55,7 +62,7 @@ jobs:
   update-charts:
     runs-on: ubuntu-latest
     steps:
-      - uses: AndrewDongminYoo/wakatime-svg@v1.2.0
+      - uses: AndrewDongminYoo/wakatime-svg@v1.4.0
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -80,7 +87,7 @@ jobs:
   update-charts:
     runs-on: ubuntu-latest
     steps:
-      - uses: AndrewDongminYoo/wakatime-svg@v1.2.0
+      - uses: AndrewDongminYoo/wakatime-svg@v1.4.0
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -107,8 +114,8 @@ You can customize how `Unknown Project` rows appear using `WAKATIME_PRIVATE_PROJ
 ## Why this action
 
 - Transparent SVGs blend nicely on both light and dark themes.
-- Mobile-friendly default width (360px) keeps cards readable in apps.
-- Shows both languages and projects (with additions/deletions split for projects).
+- Mobile-friendly default size (360px image) keeps cards readable in apps, and matches `github-stats-transparent` so both line up on a profile README.
+- Shows both languages and projects, with bars you can compare at a glance.
 - Simple setup: defaults are sane, but layout can be fully customized.
 
 ## Inspiration

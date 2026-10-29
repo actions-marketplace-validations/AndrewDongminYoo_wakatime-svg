@@ -16,6 +16,11 @@ runtimes:
     - python@3.14.4
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  files:
+    - name: github-actions
+      filenames: [action.yml]
+    - name: lockfile
+      filenames: [uv.lock]
   ignore:
     # Tests assert on purpose; bandit's B101 is noise there.
     - linters: [bandit]
@@ -23,20 +28,20 @@ lint:
         - tests/**
   disabled:
     - svgo
-    - pinact
   enabled:
     - oxipng@10.2.0
     - taplo@0.10.0
     - actionlint@1.7.12
     - bandit@1.9.4
-    - black@26.5.1
-    - checkov@3.3.15
+    - black@26.10.1
+    - checkov@3.3.30
     - git-diff-check
-    - isort@9.0.0
-    - markdownlint@0.49.1
+    - isort@9.0.2
+    - markdownlint@0.50.0
     - osv-scanner@2.5.1
-    - prettier@3.9.6
-    - ruff@0.16.4
+    - pinact@4.1.1!: { commands: [lint, upgrade] }
+    - prettier@3.9.10
+    - ruff@0.17.2
     - trufflehog@3.97.1
     - yamllint@1.38.0
 actions:
